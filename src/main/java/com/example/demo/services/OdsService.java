@@ -20,14 +20,14 @@ public class OdsService {
     private static String underline = "_";
     private static String point = ".";
 
-    protected static void exportExcel(List<String> stringHeaderList, List<List<String>> stringContentList, String dirName, String fileName, String titleTag) throws IOException {
-        builderSheet(stringHeaderList, stringContentList, dirName, fileName, titleTag);
+    protected static void exportExcel(List<String> stringHeaderList, List<List<String>> stringContentList, String dirName, String fileName, String titleTag, String lang, String country) throws IOException {
+        builderSheet(stringHeaderList, stringContentList, dirName, fileName, titleTag, lang, country);
     }
 
-    private static void builderSheet(List<String> stringHeaderList, List<List<String>> stringContentList, String dirName, String fileName, String titleTag) throws IOException {
+    private static void builderSheet(List<String> stringHeaderList, List<List<String>> stringContentList, String dirName, String fileName, String titleTag, String lang, String country) throws IOException {
         AtomicInteger rownum = new AtomicInteger();
 
-        final OdsFactory odsFactory = OdsFactory.create(Logger.getLogger(titleTag), new Locale("pt", "BR"));
+        final OdsFactory odsFactory = OdsFactory.create(Logger.getLogger(titleTag), new Locale(lang, country));
         final AnonymousOdsFileWriter writer = odsFactory.createWriter();
         final OdsDocument document = writer.document();
 

@@ -28,6 +28,8 @@ public class DemoApplication {
 
         String odsContent = "application/vnd.oasis.opendocument.spreadsheet";
 
+        String[] local = {"pt","BR"};
+
         List<String> headers = new ArrayList<>();
 
         headers.add(String.valueOf(NOME));
@@ -124,7 +126,7 @@ public class DemoApplication {
         System.out.println(dadosDosAlunos);
 
         try {
-            OptionsSpreadSheetService.exportSpreadSheet(headers, dadosDosAlunos, dirName, fileName, titleTag, xlsxContent);
+            OptionsSpreadSheetService.exportSpreadSheet(headers, dadosDosAlunos, dirName, fileName, titleTag, xlsxContent, local[0], local[1]);
         } catch (IOException e) {
             e.printStackTrace();
         }*/
